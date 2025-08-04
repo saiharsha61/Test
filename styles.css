@@ -1,0 +1,171 @@
+/* Hacker theme: dark, neon green, terminal font */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  background: #0f0f0f;
+  color: #00ff41;
+  font-family: 'Share Tech Mono', monospace;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Overlay animation effect */
+.overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,255,65,0.04) 0px,
+    rgba(0,255,65,0.09) 2px,
+    transparent 4px,
+    transparent 8px
+  );
+  z-index: 1;
+  animation: overlayScan 4s infinite linear;
+}
+
+@keyframes overlayScan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 8px; }
+}
+
+header, nav, main, footer {
+  position: relative;
+  z-index: 2;
+}
+
+header {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.glitch {
+  font-size: 2.5rem;
+  color: #00ff41;
+  text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41;
+  position: relative;
+  display: inline-block;
+  animation: glitch 1s infinite steps(2, end);
+}
+.glitch:before, .glitch:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    opacity: 0.7;
+}
+.glitch:before {
+    color: #0ff;
+    z-index: -2;
+    animation: glitchTop 1s infinite steps(2, end);
+    top: -2px;
+}
+.glitch:after {
+    color: #f0f;
+    z-index: -1;
+    animation: glitchBottom 1s infinite steps(2, end);
+    top: 2px;
+}
+@keyframes glitch {
+    0% { transform: none; }
+    20% { transform: skew(-2deg,2deg); }
+    40% { transform: skew(2deg,-1deg); }
+    60% { transform: skew(-1deg,1deg); }
+    80% { transform: skew(1deg,-2deg); }
+    100% { transform: none; }
+}
+@keyframes glitchTop {
+    0%, 100% { transform: none; }
+    10% { transform: translate(-2px, -2px);}
+    20% { transform: translate(2px, 2px);}
+    40% { transform: translate(-1px, 1px);}
+    60% { transform: translate(1px, -1px);}
+    80% { transform: translate(-2px, 2px);}
+}
+@keyframes glitchBottom {
+    0%, 100% { transform: none; }
+    10% { transform: translate(2px, 2px);}
+    20% { transform: translate(-2px, -2px);}
+    40% { transform: translate(1px, -1px);}
+    60% { transform: translate(-1px, 1px);}
+    80% { transform: translate(2px, -2px);}
+}
+
+nav {
+  margin: 2rem auto 1rem auto;
+  text-align: center;
+}
+
+nav ul {
+  display: inline-block;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  border-radius: 7px;
+  background: rgba(10, 25, 10, 0.7);
+  box-shadow: 0 0 10px #00ff4180;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  color: #00ff41;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+nav a:hover, nav a:focus {
+  background: #00ff41;
+  color: #0f0f0f;
+}
+
+section {
+  margin: 2.4rem auto;
+  max-width: 650px;
+  padding: 1.4rem 2rem;
+  background: rgba(10, 25, 10, 0.97);
+  border-radius: 7px;
+  box-shadow: 0 0 15px #00ff4140;
+}
+section h2 {
+  color: #90ff90;
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+ul {
+  padding-left: 1em;
+}
+
+footer {
+  margin-top: 2em;
+  text-align: center;
+  color: #137530;
+  letter-spacing: 0.07em;
+  background: #151f19;
+  padding: 0.9em 0;
+  box-shadow: 0 0 10px #00ff4122;
+}
+
+a {
+  color: #00ff41;
+  transition: color 0.1s;
+}
+
+a:hover {
+  color: #0ff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: rgba(10, 25, 10, 0.7);
+}
+::-webkit-scrollbar-thumb {
+  background: #00ff4169;
+  border-radius: 8px;
+}
